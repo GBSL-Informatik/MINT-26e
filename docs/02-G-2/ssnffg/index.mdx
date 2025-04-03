@@ -22,4 +22,27 @@ Fast könnte man meinen, ja…
 
 Aber falls du noch eine Sekunde brauchst, um dich von diesem Schock zu erholen… Hier ein **Mini-Game** zur Ablenkung:
 
+
+<canvas id="gameCanvas" width="400" height="400"></canvas>
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+let x = 200, y = 200, speed = 2;
+document.addEventListener("keydown", move);
+function move(e) {
+    if (e.key === "ArrowUp") y -= speed;
+    if (e.key === "ArrowDown") y += speed;
+    if (e.key === "ArrowLeft") x -= speed;
+    if (e.key === "ArrowRight") x += speed;
+}
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "red";
+    ctx.fillRect(x, y, 20, 20);
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+
 Zurück zum [Rätsel](https://mint-26e.gbsl.website/mhwmjw)
